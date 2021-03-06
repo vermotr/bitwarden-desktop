@@ -246,6 +246,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "^9.1.12",
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "@ngtools/webpack": "^9.1.12",
     "@types/lunr": "^2.3.3",
     "@types/node": "^10.17.28",
@@ -267,7 +268,6 @@
     "electron-rebuild": "^2.3.4",
     "electron-reload": "^1.5.0",
     "file-loader": "^2.0.0",
-    "font-awesome": "4.7.0",
     "gulp": "^4.0.0",
     "gulp-google-webfonts": "^2.0.0",
     "html-loader": "^0.5.5",

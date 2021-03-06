@@ -60,7 +60,7 @@
                 <div class="box-header">
                     {{'options' | i18n}}
                     <a class="toggle" href="#" appStopClick appBlurClick role="button" (click)="toggleOptions()">
-                        <i class="fa fa-lg" aria-hidden="true" [ngClass]="{'fa-chevron-down': !showOptions, 'fa-chevron-up': showOptions}"></i>
+                        <i class="fas fa-lg" aria-hidden="true" [ngClass]="{'fa-chevron-down': !showOptions, 'fa-chevron-up': showOptions}"></i>
                     </a>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                             <div class="action-buttons">
                                 <a class="row-btn" href="#" appStopClick appBlurClick role="button"
                                     appA11yTitle="{{'toggleVisibility' | i18n}}" (click)="togglePasswordVisible()"  [disabled]="disableSend">
-                                    <i class="fa fa-lg" aria-hidden="true"
+                                    <i class="fas fa-lg" aria-hidden="true"
                                         [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
                                 </a>
                             </div>
@@ -167,20 +167,20 @@
     </div>
     <div class="footer">
         <button appBlurClick type="submit" class="primary" appA11yTitle="{{'save' | i18n}}" *ngIf="!disableSend">
-            <i class="fa fa-save fa-lg fa-fw" aria-hidden="true"></i>
+            <i class="fas fa-save fa-lg fa-fw" aria-hidden="true"></i>
         </button>
         <button appBlurClick type="button" (click)="cancel()">
             {{'cancel' | i18n}}
         </button>
         <div class="right">
             <button appBlurClick type="button" (click)="copyLinkToClipboard(link)" appA11yTitle="{{'copySendLinkToClipboard' | i18n}}" *ngIf="editMode">
-                <i class="fa fa-copy fa-lg fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-copy fa-lg fa-fw" aria-hidden="true"></i>
             </button>
             <button #deleteBtn appBlurClick type="button" (click)="delete()" class="danger"
                 appA11yTitle="{{'delete' | i18n}}" *ngIf="editMode" [disabled]="deleteBtn.loading"
                 [appApiAction]="deletePromise">
-                <i class="fa fa-trash-o fa-lg fa-fw" [hidden]="deleteBtn.loading" aria-hidden="true"></i>
-                <i class="fa fa-spinner fa-spin fa-lg fa-fw" [hidden]="!deleteBtn.loading" aria-hidden="true"></i>
+                <i class="fas fa-trash fa-lg fa-fw" [hidden]="deleteBtn.loading" aria-hidden="true"></i>
+                <i class="fas fa-spinner fa-spin fa-lg fa-fw" [hidden]="!deleteBtn.loading" aria-hidden="true"></i>
             </button>
         </div>
     </div>

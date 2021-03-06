@@ -20,7 +20,7 @@
                         <div class="action-buttons">
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyUsername' | i18n}}"
                                 (click)="copy(cipher.login.username, 'username', 'Username')" role="button">
-                                <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                                <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -37,19 +37,19 @@
                             <button type="button" #checkPasswordBtn class="row-btn btn" appBlurClick
                                 appA11yTitle="{{'checkPassword' | i18n}}" (click)="checkPassword()"
                                 [appApiAction]="checkPasswordPromise" [disabled]="checkPasswordBtn.loading">
-                                <i class="fa fa-lg fa-check-circle" [hidden]="checkPasswordBtn.loading"
+                                <i class="fas fa-lg fa-check-circle" [hidden]="checkPasswordBtn.loading"
                                     aria-hidden="true"></i>
-                                <i class="fa fa-lg fa-spinner fa-spin" [hidden]="!checkPasswordBtn.loading"
+                                <i class="fas fa-lg fa-spinner fa-spin" [hidden]="!checkPasswordBtn.loading"
                                     aria-hidden="true"></i>
                             </button>
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'toggleVisibility' | i18n}}"
                                 (click)="togglePassword()" role="button">
-                                <i class="fa fa-lg" aria-hidden="true"
+                                <i class="fas fa-lg" aria-hidden="true"
                                     [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
                             </a>
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyPassword' | i18n}}"
                                 (click)="copy(cipher.login.password, 'password', 'Password')" role="button">
-                                <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                                <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="action-buttons">
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyValue' | i18n}}"
                                 (click)="copy(totpCode, 'verificationCodeTotp', 'TOTP')" role="button">
-                                <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                                <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         <div class="action-buttons">
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyNumber' | i18n}}"
                                 (click)="copy(cipher.card.number, 'number', 'Number')" role="button">
-                                <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                                <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -113,12 +113,12 @@
                         <div class="action-buttons">
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'toggleVisibility' | i18n}}"
                                 (click)="toggleCardCode()" role="button">
-                                <i class="fa fa-lg" aria-hidden="true"
+                                <i class="fas fa-lg" aria-hidden="true"
                                     [ngClass]="{'fa-eye': !showCardCode, 'fa-eye-slash': showCardCode}"></i>
                             </a>
                             <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copySecurityCode' | i18n}}"
                                 (click)="copy(cipher.card.code, 'securityCode', 'Security Code')" role="button">
-                                <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                                <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -180,11 +180,11 @@
                     <div class="action-buttons">
                         <a class="row-btn" href="#" appStopClick appA11yTitle="{{'launch' | i18n}}" *ngIf="u.canLaunch"
                             (click)="launch(u)" role="button">
-                            <i class="fa fa-lg fa-share-square-o" aria-hidden="true"></i>
+                            <i class="fas fa-lg fa-external-link-alt" aria-hidden="true"></i>
                         </a>
                         <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyUri' | i18n}}"
                             (click)="copy(u.uri, u.isWebsite ? 'website' : 'uri', 'URI')" role="button">
-                            <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                            <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -214,8 +214,8 @@
                             <span [hidden]="field.showValue" class="monospaced">{{field.maskedValue}}</span>
                         </div>
                         <div *ngIf="field.type === fieldType.Boolean">
-                            <i class="fa fa-check-square-o" *ngIf="field.value === 'true'" aria-hidden="true"></i>
-                            <i class="fa fa-square-o" *ngIf="field.value !== 'true'" aria-hidden="true"></i>
+                            <i class="fas fa-check-square" *ngIf="field.value === 'true'" aria-hidden="true"></i>
+                            <i class="fas fa-square" *ngIf="field.value !== 'true'" aria-hidden="true"></i>
                             <span class="sr-only">{{field.value}}</span>
                         </div>
                     </div>
@@ -223,14 +223,14 @@
                         <a class="row-btn" href="#" appStopClick appA11yTitle="{{'toggleVisibility' | i18n}}"
                             *ngIf="field.type === fieldType.Hidden && cipher.viewPassword"
                             (click)="toggleFieldValue(field)" role="button">
-                            <i class="fa fa-lg" aria-hidden="true"
+                            <i class="fas fa-lg" aria-hidden="true"
                                 [ngClass]="{'fa-eye': !field.showValue, 'fa-eye-slash': field.showValue}"></i>
                         </a>
                         <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyValue' | i18n}}"
                             *ngIf="field.value && field.type !== fieldType.Boolean && !(field.type === fieldType.Hidden && !cipher.viewPassword)"
                             (click)="copy(field.value, 'value', field.type === fieldType.Hidden ? 'H_Field' : 'Field')"
                             role="button">
-                            <i class="fa fa-lg fa-clone" aria-hidden="true"></i>
+                            <i class="fas fa-lg fa-clone" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -246,8 +246,8 @@
                     (click)="downloadAttachment(attachment)">
                     <span class="row-main">{{attachment.fileName}}</span>
                     <small class="row-sub-label">{{attachment.sizeName}}</small>
-                    <i class="fa fa-download fa-fw row-sub-icon" *ngIf="!attachment.downloading" aria-hidden="true"></i>
-                    <i class="fa fa-spinner fa-fw fa-spin row-sub-icon" *ngIf="attachment.downloading"
+                    <i class="fas fa-cloud-download-alt fa-fw row-sub-icon" *ngIf="!attachment.downloading" aria-hidden="true"></i>
+                    <i class="fas fa-spinner fa-fw fa-spin row-sub-icon" *ngIf="attachment.downloading"
                         aria-hidden="true"></i>
                 </a>
             </div>
@@ -275,20 +275,20 @@
 </div>
 <div class="footer" *ngIf="cipher">
     <button appBlurClick class="primary" (click)="edit()" appA11yTitle="{{'edit' | i18n}}" *ngIf="!cipher.isDeleted">
-        <i class="fa fa-pencil fa-fw fa-lg" aria-hidden="true"></i>
+        <i class="fas fa-pen fa-fw fa-lg" aria-hidden="true"></i>
     </button>
     <button appBlurClick class="primary" (click)="restore()" appA11yTitle="{{'restore' | i18n}}" 
         *ngIf="cipher.isDeleted">
-        <i class="fa fa-undo fa-fw fa-lg" aria-hidden="true"></i>
+        <i class="fas fa-undo fa-fw fa-lg" aria-hidden="true"></i>
     </button>
     <button appBlurClick class="primary" *ngIf="!cipher?.organizationId && !cipher.isDeleted" (click)="clone()" 
         appA11yTitle="{{'clone' | i18n}}">
-        <i class="fa fa-files-o fa-fw fa-lg" aria-hidden="true"></i>
+        <i class="fas fa-copy fa-fw fa-lg" aria-hidden="true"></i>
     </button>
     <div class="right">
         <button appBlurClick type="button" (click)="delete()" class="danger"
             appA11yTitle="{{(cipher.isDeleted ? 'permanentlyDelete' : 'delete') | i18n}}">
-            <i class="fa fa-trash-o fa-lg fa-fw" aria-hidden="true"></i>
+            <i class="fas fa-trash fa-lg fa-fw" aria-hidden="true"></i>
         </button>
     </div>
 </div>

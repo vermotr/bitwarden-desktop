@@ -285,7 +285,7 @@
             text-align: center;
             padding: 0 10px;
 
-            .fa {
+            .fas {
                 margin-bottom: 10px;
 
                 @include themify($themes) {
@@ -376,7 +376,7 @@
                 text-align: left;
                 position: relative;
 
-                .fa {
+                .fas {
                     position: absolute;
                     top: 7px;
                     left: 15px;

@@ -17,7 +17,7 @@
                     <div class="action-buttons">
                         <a class="row-btn" href="#" appStopClick appBlurClick role="button"
                             appA11yTitle="{{'toggleVisibility' | i18n}}" (click)="togglePassword()">
-                            <i class="fa fa-lg" aria-hidden="true"
+                            <i class="fas fa-lg" aria-hidden="true"
                                 [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
                         </a>
                     </div>
@@ -28,16 +28,16 @@
         <div class="buttons with-rows">
             <div class="buttons-row">
                 <button type="submit" class="btn primary block" [disabled]="form.loading" appBlurClick>
-                    <b [hidden]="form.loading"><i class="fa fa-sign-in" aria-hidden="true"></i> {{'logIn' | i18n}}</b>
-                    <i class="fa fa-spinner fa-spin" [hidden]="!form.loading" aria-hidden="true"></i>
+                    <b [hidden]="form.loading"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> {{'logIn' | i18n}}</b>
+                    <i class="fas fa-spinner fa-spin" [hidden]="!form.loading" aria-hidden="true"></i>
                 </button>
                 <a routerLink="/register" class="btn block">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'createAccount' | i18n}}
+                    <i class="fas fa-pen-square" aria-hidden="true"></i> {{'createAccount' | i18n}}
                 </a>
             </div>
             <div class="buttons-row">
                 <a (click)="launchSsoBrowser('desktop', 'bitwarden://sso-callback')" class="btn block">
-                    <i class="fa fa-bank" aria-hidden="true"></i> {{'enterpriseSingleSignOn' | i18n}}
+                    <i class="fas fa-university" aria-hidden="true"></i> {{'enterpriseSingleSignOn' | i18n}}
                 </a>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <a routerLink="/hint">{{'getMasterPasswordHint' | i18n}}</a>
         </div>
         <a href="#" appStopClick (click)="settings()" class="settings-icon" attr.aria-label="{{'settings' | i18n}}">
-            <i class="fa fa-cog fa-lg" aria-hidden="true"></i><span
+            <i class="fas fa-cog fa-lg" aria-hidden="true"></i><span
                 aria-hidden="true">&nbsp;{{'settings' | i18n}}</span>
         </a>
     </div>

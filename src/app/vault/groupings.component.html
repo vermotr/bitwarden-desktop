@@ -5,17 +5,17 @@
         <ul>
             <li [ngClass]="{active: selectedAll}">
                 <a href="#" appStopClick appBlurClick (click)="selectAll()">
-                    <i class="fa fa-fw fa-th" aria-hidden="true"></i>&nbsp;{{'allItems' | i18n}}
+                    <i class="fas fa-fw fa-th" aria-hidden="true"></i>&nbsp;{{'allItems' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedFavorites}">
                 <a href="#" appStopClick appBlurClick (click)="selectFavorites()">
-                    <i class="fa fa-fw fa-star" aria-hidden="true"></i>&nbsp;{{'favorites' | i18n}}
+                    <i class="fas fa-fw fa-star" aria-hidden="true"></i>&nbsp;{{'favorites' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedTrash}">
                 <a href="#" appStopClick appBlurClick (click)="selectTrash()">
-                    <i class="fa fa-fw fa-trash-o" aria-hidden="true"></i>&nbsp;{{'trash' | i18n}}
+                    <i class="fas fa-fw fa-trash" aria-hidden="true"></i>&nbsp;{{'trash' | i18n}}
                 </a>
             </li>
         </ul>
@@ -23,22 +23,22 @@
         <ul>
             <li [ngClass]="{active: selectedType === cipherType.Login}">
                 <a href="#" appStopClick appBlurClick (click)="selectType(cipherType.Login)">
-                    <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp;{{'typeLogin' | i18n}}
+                    <i class="fas fa-fw fa-globe-europe" aria-hidden="true"></i>&nbsp;{{'typeLogin' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedType === cipherType.Card}">
                 <a href="#" appStopClick appBlurClick (click)="selectType(cipherType.Card)">
-                    <i class="fa fa-fw fa-credit-card" aria-hidden="true"></i>&nbsp;{{'typeCard' | i18n}}
+                    <i class="fas fa-fw fa-credit-card" aria-hidden="true"></i>&nbsp;{{'typeCard' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedType === cipherType.Identity}">
                 <a href="#" appStopClick appBlurClick (click)="selectType(cipherType.Identity)">
-                    <i class="fa fa-fw fa-id-card-o" aria-hidden="true"></i>&nbsp;{{'typeIdentity' | i18n}}
+                    <i class="fas fa-fw fa-id-card" aria-hidden="true"></i>&nbsp;{{'typeIdentity' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedType === cipherType.SecureNote}">
                 <a href="#" appStopClick appBlurClick (click)="selectType(cipherType.SecureNote)">
-                    <i class="fa fa-fw fa-sticky-note-o" aria-hidden="true"></i>&nbsp;{{'typeSecureNote' | i18n}}
+                    <i class="fas fa-fw fa-sticky-note" aria-hidden="true"></i>&nbsp;{{'typeSecureNote' | i18n}}
                 </a>
             </li>
         </ul>
@@ -47,7 +47,7 @@
             <div class="heading">
                 <h2>{{'folders' | i18n}}</h2>
                 <button appBlurClick (click)="addFolder()" appA11yTitle="{{'addFolder' | i18n}}">
-                    <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                    <i class="fas fa-plus fa-fw" aria-hidden="true"></i>
                 </button>
             </div>
             <ul>
@@ -55,14 +55,14 @@
                     <li *ngFor="let f of folders"
                         [ngClass]="{active: selectedFolder && f.node.id === selectedFolderId}">
                         <a href="#" appStopClick appBlurClick (click)="selectFolder(f.node)">
-                            <i *ngIf="f.children.length" class="fa-fw fa" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
+                            <i *ngIf="f.children.length" class="fa-fw fas" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
                                 [ngClass]="{'fa-caret-right': isCollapsed(f.node), 'fa-caret-down': !isCollapsed(f.node)}"
                                 (click)="collapse(f.node)" appStopProp></i>
-                            <i *ngIf="f.children.length === 0" class="fa-fw fa fa-folder-o" aria-hidden="true"></i>
+                            <i *ngIf="f.children.length === 0" class="fa-fw fas fa-folder" aria-hidden="true"></i>
                             &nbsp;{{f.node.name}}
                             <span appStopProp appStopClick (click)="editFolder(f.node)" role="button"
                                 appA11yTitle="{{'editFolder' | i18n}}" *ngIf="f.node.id">
-                                <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
                             </span>
                         </a>
                         <ul class="fa-ul" *ngIf="f.children.length && !isCollapsed(f.node)">
@@ -79,10 +79,10 @@
                     <ng-template #recursiveCollections let-collections>
                         <li *ngFor="let c of collections" [ngClass]="{active: c.node.id === selectedCollectionId}">
                             <a href="#" appStopClick appBlurClick (click)="selectCollection(c.node)">
-                                <i *ngIf="c.children.length" class="fa-fw fa" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
+                                <i *ngIf="c.children.length" class="fa-fw fas" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
                                     [ngClass]="{'fa-caret-right': isCollapsed(c.node), 'fa-caret-down': !isCollapsed(c.node)}"
                                     (click)="collapse(c.node)" appStopProp></i>
-                                <i *ngIf="c.children.length === 0" class="fa-fw fa fa-cube" aria-hidden="true"></i>
+                                <i *ngIf="c.children.length === 0" class="fa-fw fas fa-cube" aria-hidden="true"></i>
                                 &nbsp;{{c.node.name}}
                             </a>
                             <ul class="fa-ul" *ngIf="c.children.length && !isCollapsed(c.node)">
