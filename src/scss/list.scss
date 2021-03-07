@@ -1,36 +1,27 @@
 ﻿@import "variables.scss";
 
+.list {
+    padding: 5px 0;
+}
+
 .list > a {
     display: block;
-    padding: 3px 10px;
+    padding: 3px 5px;
+    margin: 5px 10px;
     text-decoration: none;
     position: relative;
     user-select: none;
     z-index: 1;
+    border-radius: $border-radius;
 
     @include themify($themes) {
         color: themed('textColor');
-        background-color: themed('listItemBackgroundColor');
     }
 
     &:after {
         content: "";
         display: table;
         clear: both;
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        height: 1px;
-        width: calc(100% - 10px);
-        border-bottom: 1px solid #000000;
-
-        @include themify($themes) {
-            border-bottom-color: themed('listItemBorderColor');
-        }
     }
 
     &:last-child:before {
@@ -45,21 +36,13 @@
     }
 
     &.active {
-        border-left: 5px solid #000000;
-        padding-left: 5px;
-
         @include themify($themes) {
-            border-left-color: themed('primaryColor');
+            background-color: themed('listItemActiveBackgroundColor');
         }
     }
 
     &:focus:not(.active) {
-        border-left: 5px solid #000000;
         padding-left: 5px;
-
-        @include themify($themes) {
-            border-left-color: themed('mutedColor');
-        }
     }
 
     .text, .detail {
@@ -86,18 +69,22 @@
         justify-content: center;
         align-items: center;
         float: left;
-        height: 36px;
+        height: 34px;
         width: 34px;
-        margin-left: -5px;
-        
+        margin-top: 1px;
+        margin-right: 10px;
+
         @include themify($themes) {
+            background-color: themed('backgroundColor');
+            border: 1px solid themed('borderColor');
             color: themed('mutedColor');
+            border-radius: $border-radius;
         }
 
         img {
             border-radius: $border-radius;
-            max-height: 20px;
-            max-width: 20px;
+            max-height: 32px;
+            max-width: 32px;
         }
     }
 }

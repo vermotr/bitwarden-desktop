@@ -10,7 +10,7 @@ $border-color: #f0f0f0;
 $border-color-dark: #ddd;
 $list-item-hover: #fbfbfb;
 $list-icon-color: #c7c7cd;
-$border-radius: 3px;
+$border-radius: 5px;
 $line-height-base: 1.42857143;
 
 $gray: #555;
@@ -58,7 +58,7 @@ $themes: (
         headerInputPlaceholderColor: lighten($brand-primary, 35%),
         listItemBackgroundColor: $background-color,
         listItemBackgroundHoverColor: $list-item-hover,
-        listItemBorderColor: $border-color,
+        listItemActiveBackgroundColor: darken($background-color-alt, 5%),
         groupingsActiveColor: darken($background-color-alt, 5%),
         groupingsBitwardenIconBackgroundColor: $button-color-primary,
         groupingsFavoritesIconBackgroundColor: #f5c259,
@@ -112,17 +112,17 @@ $themes: (
         headerInputPlaceholderColor: #707070,
         listItemBackgroundColor: #363636,
         listItemBackgroundHoverColor: #3c3c3c,
-        listItemBorderColor: #2f2f2f,
+        listItemActiveBackgroundColor: $brand-primary,
         groupingsActiveColor: $brand-primary,
         groupingsBitwardenIconBackgroundColor: #ffffff,
         groupingsFavoritesIconBackgroundColor: #f5c259,
         groupingsBinIconBackgroundColor: #dc4c5d,
         disabledIconColor: #c7c7cd,
-        headingColor: #a3a3a3,
-        headingButtonColor: #a3a3a3,
+        headingColor: #ffffffb3,
+        headingButtonColor: #ffffffb3,
         headingButtonHoverColor: #ffffff,
-        labelColor: #a3a3a3,
-        mutedColor: #a3a3a3,
+        labelColor: #ffffffb3,
+        mutedColor: #ffffffb3,
         totpStrokeColor: #cacaca,
         boxRowButtonColor: #cacaca,
         boxRowButtonHoverColor: #ffffff,
@@ -166,7 +166,7 @@ $themes: (
         headerInputPlaceholderColor: $nord3,
         listItemBackgroundColor: $nord2,
         listItemBackgroundHoverColor: $nord3,
-        listItemBorderColor: $nord1,
+        listItemActiveBackgroundColor: $nord3,
         groupingsActiveColor: $nord3,
         groupingsBitwardenIconBackgroundColor: #ffffff,
         groupingsFavoritesIconBackgroundColor: #f5c259,
