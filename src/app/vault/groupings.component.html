@@ -5,17 +5,19 @@
         <ul>
             <li [ngClass]="{active: selectedAll}">
                 <a href="#" appStopClick appBlurClick (click)="selectAll()">
-                    <i class="fas fa-fw fa-th" aria-hidden="true"></i>&nbsp;{{'allItems' | i18n}}
+                    <svg class="fas fa-fw bitwarden" width="1.25em" viewBox="0 0 1792 1792">
+                        <path d="M1344 960v-640h-448v1137q119-63 213-137 235-184 235-360zm192-768v768q0 86-33.5 170.5t-83 150-118 127.5-126.5 103-121 77.5-89.5 49.5-42.5 20q-12 6-26 6t-26-6q-16-7-42.5-20t-89.5-49.5-121-77.5-126.5-103-118-127.5-83-150-33.5-170.5v-768q0-26 19-45t45-19h1152q26 0 45 19t19 45z"/>
+                    </svg>&nbsp;{{'allItems' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedFavorites}">
                 <a href="#" appStopClick appBlurClick (click)="selectFavorites()">
-                    <i class="fas fa-fw fa-star" aria-hidden="true"></i>&nbsp;{{'favorites' | i18n}}
+                    <i class="fas fa-fw fa-star favorites" aria-hidden="true"></i>&nbsp;{{'favorites' | i18n}}
                 </a>
             </li>
             <li [ngClass]="{active: selectedTrash}">
                 <a href="#" appStopClick appBlurClick (click)="selectTrash()">
-                    <i class="fas fa-fw fa-trash" aria-hidden="true"></i>&nbsp;{{'trash' | i18n}}
+                    <i class="fas fa-fw fa-trash bin" aria-hidden="true"></i>&nbsp;{{'trash' | i18n}}
                 </a>
             </li>
         </ul>
@@ -55,10 +57,10 @@
                     <li *ngFor="let f of folders"
                         [ngClass]="{active: selectedFolder && f.node.id === selectedFolderId}">
                         <a href="#" appStopClick appBlurClick (click)="selectFolder(f.node)">
-                            <i *ngIf="f.children.length" class="fa-fw fas" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
+                            <i *ngIf="f.children.length" class="caret fa-fw fas" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
                                 [ngClass]="{'fa-caret-right': isCollapsed(f.node), 'fa-caret-down': !isCollapsed(f.node)}"
                                 (click)="collapse(f.node)" appStopProp></i>
-                            <i *ngIf="f.children.length === 0" class="fa-fw fas fa-folder" aria-hidden="true"></i>
+                            <i class="fa-fw fas fa-folder" aria-hidden="true"></i>
                             &nbsp;{{f.node.name}}
                             <span appStopProp appStopClick (click)="editFolder(f.node)" role="button"
                                 appA11yTitle="{{'editFolder' | i18n}}" *ngIf="f.node.id">
@@ -79,10 +81,10 @@
                     <ng-template #recursiveCollections let-collections>
                         <li *ngFor="let c of collections" [ngClass]="{active: c.node.id === selectedCollectionId}">
                             <a href="#" appStopClick appBlurClick (click)="selectCollection(c.node)">
-                                <i *ngIf="c.children.length" class="fa-fw fas" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
+                                <i *ngIf="c.children.length" class="caret fa-fw fa" title="{{'toggleCollapse' | i18n}}" aria-hidden="true"
                                     [ngClass]="{'fa-caret-right': isCollapsed(c.node), 'fa-caret-down': !isCollapsed(c.node)}"
                                     (click)="collapse(c.node)" appStopProp></i>
-                                <i *ngIf="c.children.length === 0" class="fa-fw fas fa-cube" aria-hidden="true"></i>
+                                <i class="fa-fw fa fa-cube" aria-hidden="true"></i>
                                 &nbsp;{{c.node.name}}
                             </a>
                             <ul class="fa-ul" *ngIf="c.children.length && !isCollapsed(c.node)">

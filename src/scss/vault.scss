@@ -9,7 +9,7 @@
         flex-direction: column;
 
         .inner-content {
-            padding: 10px 15px;
+            padding: 10px;
         }
     }
 
@@ -36,7 +36,6 @@
 
             .inner-content {
                 padding-bottom: 0;
-                padding-right: 5px;
                 user-select: none;
 
                 > ul, > div > ul {
@@ -46,14 +45,18 @@
         }
 
         h2 {
-            text-transform: uppercase;
             font-size: $font-size-base;
             font-weight: normal;
             margin-bottom: 5px;
+            margin-left: 5px;
 
             @include themify($themes) {
                 color: themed('headingColor');
             }
+        }
+
+        .text-muted {
+            margin-left: 5px;
         }
 
         .heading {
@@ -61,6 +64,7 @@
 
             button {
                 margin-left: auto;
+                margin-right: 10px;
                 background: none;
                 border: none;
                 @include themify($themes) {
@@ -74,6 +78,24 @@
                         color: themed('headingButtonHoverColor');
                     }
                 }
+            }
+        }
+
+        .bitwarden {
+            @include themify($themes) {
+                fill: themed('groupingsBitwardenIconBackgroundColor');
+            }
+        }
+
+        .favorites {
+            @include themify($themes) {
+                color: themed('groupingsFavoritesIconBackgroundColor');
+            }
+        }
+
+        .bin {
+            @include themify($themes) {
+                color: themed('groupingsBinIconBackgroundColor');
             }
         }
 
@@ -101,7 +123,7 @@
             // Level 1
             li {
                 > a {
-                    padding-left: 12px;
+                    padding-left: 30px;
                 }
 
                 .fa-li {
@@ -116,7 +138,7 @@
             // Level 2
             ul li { 
                 > a {
-                    padding-left: 23px;
+                    padding-left: 40px;
                 }
 
                 .fa-li {
@@ -131,7 +153,7 @@
             // Level 3
             ul ul li { 
                 > a {
-                    padding-left: 34px;
+                    padding-left: 50px;
                 }
 
                 .fa-li {
@@ -146,7 +168,7 @@
             // Level 4
             ul ul ul li { 
                 > a {
-                    padding-left: 45px;
+                    padding-left: 60px;
                 }
 
                 .fa-li {
@@ -161,7 +183,7 @@
             // Level 5
             ul ul ul ul li { 
                 > a {
-                    padding-left: 56px;
+                    padding-left: 70px;
                 }
 
                 .fa-li {
@@ -176,7 +198,7 @@
             // Level 6
             ul ul ul ul ul li { 
                 > a {
-                    padding-left: 67px;
+                    padding-left: 80px;
                 }
 
                 .fa-li {
@@ -191,7 +213,7 @@
             // Level 7
             ul ul ul ul ul ul li { 
                 > a {
-                    padding-left: 78px;
+                    padding-left: 90px;
                 }
 
                 .fa-li {
@@ -210,12 +232,26 @@
 
             li {
                 a {
-                    padding: 5px 0;
+                    padding: 5px 5px 5px 20px;
                     display: flex;
                     align-items: center;
 
                     @include themify($themes) {
                         color: themed('textColor');
+                    }
+
+                    i {
+                        @include themify($themes) {
+                            color: themed('mutedColor');
+                        }
+                    }
+
+                    i:last-of-type {
+                        margin-right: 5px;
+                    }
+
+                    svg {
+                        margin-right: 5px;
                     }
 
                     span {
@@ -240,14 +276,17 @@
                     }
                 }
 
-                &.active {
-                    margin-left: -15px;
-                    margin-right: -5px;
-                    padding-left: 15px;
-                    padding-right: 5px;
+                .caret {
+                    margin-left: -1.25em;
+                }
 
-                    @include themify($themes) {
-                        background-color: themed('groupingsActiveColor');
+                &.active {
+                    & > a {
+                        @include themify($themes) {
+                            background-color: themed('groupingsActiveColor');
+                        }
+
+                        border-radius: 5px;
                     }
 
                     ul {
