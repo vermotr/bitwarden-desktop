@@ -454,6 +454,12 @@
                 }
             }
         }
+        & .add-item {
+            margin-right: 5px;
+            .btn {
+                padding: 4px 10px;
+            }
+        }
     }
 
     .content {

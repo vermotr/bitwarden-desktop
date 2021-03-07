@@ -39,6 +39,11 @@
                     [(ngModel)]="searchText" (input)="searchTextChanged()" autocomplete="off" appAutofocus>
                 <i class="fas fa-search" aria-hidden="true"></i>
             </div>
+            <div class="add-item">
+                <button appBlurClick (click)="addSend()" class="btn block primary" appA11yTitle="{{'addItem' | i18n}}">
+                    <i class="fas fa-plus fa-lg" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
         <div class="content">
             <div class="list" *ngIf="filteredSends.length" infiniteScroll [infiniteScrollDistance]="1"
@@ -88,11 +93,6 @@
                     <p>{{'noItemsInList' | i18n}}</p>
                 </ng-container>
             </div>
-        </div>
-        <div class="footer">
-            <button appBlurClick (click)="addSend()" class="block primary" appA11yTitle="{{'addItem' | i18n}}">
-                <i class="fas fa-plus fa-lg" aria-hidden="true"></i>
-            </button>
         </div>
     </div>
     <app-send-add-edit id="addEdit" class="details" *ngIf="action == 'add' || action == 'edit'" [sendId]="sendId" [type]="selectedSendType" 

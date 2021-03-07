@@ -4,6 +4,12 @@
             [(ngModel)]="searchText" (input)="search(200)" autocomplete="off" appAutofocus>
         <i class="fas fa-search" aria-hidden="true"></i>
     </div>
+    <div class="add-item">
+        <button appBlurClick (click)="addCipher()" (contextmenu)="addCipherOptions()"
+            class="btn block primary" appA11yTitle="{{'addItem' | i18n}}" [disabled]="deleted">
+            <i class="fas fa-plus fa-lg" aria-hidden="true"></i>
+        </button>
+    </div>
 </div>
 <div class="content">
     <ng-container *ngIf="(isPaging() ? pagedCiphers : ciphers) as filteredCiphers">
@@ -37,10 +43,4 @@
             </ng-container>
         </div>
     </ng-container>
-</div>
-<div class="footer">
-    <button appBlurClick (click)="addCipher()" (contextmenu)="addCipherOptions()" 
-        class="block primary" appA11yTitle="{{'addItem' | i18n}}" [disabled]="deleted">
-        <i class="fas fa-plus fa-lg" aria-hidden="true"></i>
-    </button>
 </div>
