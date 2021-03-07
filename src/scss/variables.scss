@@ -34,7 +34,7 @@ $box-border-color: $border-color;
 
 $button-border-color: darken($border-color-dark, 12%);
 $button-background-color: white;
-$button-color: lighten($text-color, 40%);
+$button-color: lighten($text-color, 30%);
 $button-color-primary: darken($brand-primary, 8%);
 $button-color-danger: darken($brand-danger, 10%);
 
@@ -50,12 +50,11 @@ $themes: (
         boxBackgroundColor: $box-background-color,
         boxBackgroundHoverColor: $box-background-hover-color,
         boxBorderColor: $box-border-color,
-        headerBackgroundColor: $brand-primary,
-        headerBorderColor: darken($brand-primary, 7%),
-        headerInputBackgroundColor: darken($brand-primary, 8%),
-        headerInputBackgroundFocusColor: darken($brand-primary, 10%),
-        headerInputColor: #ffffff,
-        headerInputPlaceholderColor: lighten($brand-primary, 35%),
+        headerBackgroundColor: darken($background-color-alt, 5%),
+        headerBorderColor: $border-color-dark,
+        headerInputBackgroundColor: #ffffff,
+        headerInputColor: lighten($text-color, 30%),
+        headerInputPlaceholderColor: lighten($text-color, 45%),
         listItemBackgroundColor: $background-color,
         listItemBackgroundHoverColor: $list-item-hover,
         listItemActiveBackgroundColor: darken($background-color-alt, 5%),
@@ -92,6 +91,8 @@ $themes: (
         calloutBorderColor: $border-color-dark,
         calloutBackgroundColor: $background-color,
         subtextColor: #6c757d,
+        navBackgroundColor: $background-color,
+        navActiveBackgroundColor: $background-color-alt2,
     ),
     dark: (
         textColor: #ffffff,
@@ -105,12 +106,11 @@ $themes: (
         boxBackgroundHoverColor: #3f3f3f,
         boxBorderColor: #2f2f2f,
         headerBackgroundColor: #363636,
-        headerBorderColor: #272727,
-        headerInputBackgroundColor: #222222,
-        headerInputBackgroundFocusColor: #1d1d1d,
+        headerBorderColor: #2f2f2f,
+        headerInputBackgroundColor: #2f2f2f,
         headerInputColor: #ffffff,
         headerInputPlaceholderColor: #707070,
-        listItemBackgroundColor: #363636,
+        listItemBackgroundColor: #3c3c3c,
         listItemBackgroundHoverColor: #3c3c3c,
         listItemActiveBackgroundColor: $brand-primary,
         groupingsActiveColor: $brand-primary,
@@ -127,9 +127,9 @@ $themes: (
         boxRowButtonColor: #cacaca,
         boxRowButtonHoverColor: #ffffff,
         inputBorderColor: #222222,
-        inputBackgroundColor: #363636,
+        inputBackgroundColor: #2f2f2f,
         inputPlaceholderColor: #707070,
-        buttonBackgroundColor: #363636,
+        buttonBackgroundColor: #2f2f2f,
         buttonBorderColor: #1f1f1f,
         buttonColor: #e0e0e0,
         buttonPrimaryColor: #46ace7,
@@ -146,6 +146,8 @@ $themes: (
         calloutBorderColor: #2f2f2f,
         calloutBackgroundColor: #363636,
         subtextColor: #938a82,
+        navBackgroundColor: #3d3d3d,
+        navActiveBackgroundColor: #363636,
     ),
     nord: (
         textColor: $nord5,
@@ -160,10 +162,9 @@ $themes: (
         boxBorderColor: $nord1,
         headerBackgroundColor: $nord2,
         headerBorderColor: $nord0,
-        headerInputBackgroundColor: $nord6,
-        headerInputBackgroundFocusColor: $nord5,
-        headerInputColor: $nord2,
-        headerInputPlaceholderColor: $nord3,
+        headerInputBackgroundColor: $nord3,
+        headerInputColor: $nord5,
+        headerInputPlaceholderColor: $nord4,
         listItemBackgroundColor: $nord2,
         listItemBackgroundHoverColor: $nord3,
         listItemActiveBackgroundColor: $nord3,
@@ -200,6 +201,8 @@ $themes: (
         calloutBorderColor: $nord1,
         calloutBackgroundColor: $nord2,
         subtextColor: $nord4,
+        navBackgroundColor: $nord1,
+        navActiveBackgroundColor: $nord2,
     ),
 );
 

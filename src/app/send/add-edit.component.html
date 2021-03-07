@@ -1,4 +1,23 @@
 <form (ngSubmit)="submit()" [appApiAction]="formPromise">
+    <div class="header">
+            <button #deleteBtn appBlurClick type="button" (click)="delete()" class="danger"
+                appA11yTitle="{{'delete' | i18n}}" *ngIf="editMode" [disabled]="deleteBtn.loading"
+                [appApiAction]="deletePromise">
+                <i class="fas fa-trash fa-fw" [hidden]="deleteBtn.loading" aria-hidden="true"
+                ></i><i class="fas fa-spinner fa-spin fa-fw" [hidden]="!deleteBtn.loading" aria-hidden="true"></i>&nbsp;{{'delete' | i18n}}
+            </button>
+            <button appBlurClick type="button" (click)="copyLinkToClipboard(link)" appA11yTitle="{{'copySendLinkToClipboard' | i18n}}" *ngIf="editMode">
+                <i class="fas fa-copy fa-fw" aria-hidden="true"></i>&nbsp;{{'copySendLinkToClipboard' | i18n}}
+            </button>
+        <div class="right">
+            <button appBlurClick type="button" (click)="cancel()">
+                {{'cancel' | i18n}}
+            </button>
+            <button appBlurClick type="submit" class="primary" appA11yTitle="{{'save' | i18n}}" *ngIf="!disableSend">
+                <i class="fas fa-save fa-fw" aria-hidden="true"></i>&nbsp;{{'save' | i18n}}
+            </button>
+        </div>
+    </div>
     <div class="content">
         <div class="inner-content" *ngIf="send">
             <div class="box">
@@ -163,25 +182,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        <button appBlurClick type="submit" class="primary" appA11yTitle="{{'save' | i18n}}" *ngIf="!disableSend">
-            <i class="fas fa-save fa-lg fa-fw" aria-hidden="true"></i>
-        </button>
-        <button appBlurClick type="button" (click)="cancel()">
-            {{'cancel' | i18n}}
-        </button>
-        <div class="right">
-            <button appBlurClick type="button" (click)="copyLinkToClipboard(link)" appA11yTitle="{{'copySendLinkToClipboard' | i18n}}" *ngIf="editMode">
-                <i class="fas fa-copy fa-lg fa-fw" aria-hidden="true"></i>
-            </button>
-            <button #deleteBtn appBlurClick type="button" (click)="delete()" class="danger"
-                appA11yTitle="{{'delete' | i18n}}" *ngIf="editMode" [disabled]="deleteBtn.loading"
-                [appApiAction]="deletePromise">
-                <i class="fas fa-trash fa-lg fa-fw" [hidden]="deleteBtn.loading" aria-hidden="true"></i>
-                <i class="fas fa-spinner fa-spin fa-lg fa-fw" [hidden]="!deleteBtn.loading" aria-hidden="true"></i>
-            </button>
         </div>
     </div>
 </form>

@@ -1,9 +1,9 @@
 @import "variables.scss";
 
-.btn, .vault .footer button, .modal-footer button {
+.btn, .vault .footer button, .modal-footer button, .header button {
     border-radius: $border-radius;
-    padding: 7px 15px;
-    border: 1px solid #000000;
+    padding: 5px 10px;
+    border: none;
     font-size: $font-size-base;
     white-space: nowrap;
     text-align: center;
@@ -11,7 +11,6 @@
 
     @include themify($themes) {
         background-color: themed('buttonBackgroundColor');
-        border-color: themed('buttonBorderColor');
         color: themed('buttonColor');
     }
 
@@ -32,7 +31,6 @@
 
         @include themify($themes) {
             background-color: darken(themed('buttonBackgroundColor'), 1.5%);
-            border-color: darken(themed('buttonBorderColor'), 17%);
             color: darken(themed('buttonColor'), 10%);
         }
 
@@ -54,8 +52,7 @@
         outline: 0;
 
         @include themify($themes) {
-            background-color: darken(themed('buttonBackgroundColor'), 6%);
-            border-color: darken(themed('buttonBorderColor'), 25%);
+            background-color: darken(themed('buttonBackgroundColor'), 3%);
         }
     }
 

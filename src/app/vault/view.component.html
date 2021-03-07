@@ -1,5 +1,37 @@
+<div class="header cipher-header">
+    <button appBlurClick type="button" (click)="delete()" class="danger"
+        appA11yTitle="{{(cipher.isDeleted ? 'permanentlyDelete' : 'delete') | i18n}}">
+        <i class="fas fa-trash fa-fw" aria-hidden="true"></i>&nbsp;{{(cipher.isDeleted ? 'permanentlyDelete' : 'delete') | i18n}}
+    </button>
+    <div class="right">
+        <button appBlurClick *ngIf="!cipher?.organizationId && !cipher.isDeleted" (click)="clone()"
+            appA11yTitle="{{'clone' | i18n}}">
+            <i class="fas fa-copy fa-fw" aria-hidden="true"></i>&nbsp;{{'clone' | i18n}}
+        </button>
+        <button appBlurClick (click)="restore()" appA11yTitle="{{'restore' | i18n}}"
+            *ngIf="cipher.isDeleted">
+            <i class="fas fa-undo fa-fw" aria-hidden="true"></i>&nbsp;{{'restore' | i18n}}
+        </button>
+        <button appBlurClick (click)="edit()" appA11yTitle="{{'edit' | i18n}}" *ngIf="!cipher.isDeleted">
+            <i class="fas fa-pen fa-fw" aria-hidden="true"></i>&nbsp;{{'edit' | i18n}}
+        </button>
+    </div>
+</div>
 <div class="content">
-    <div class="inner-content" *ngIf="cipher">
+    <div class="inner-content cipher-content" *ngIf="cipher">
+        <div class="cipher-name">
+            <app-vault-icon [cipher]="cipher"></app-vault-icon>
+            <div>
+                <span class="text">{{cipher.name}}</span>
+                <div class="detail" [ngSwitch]="cipher.type">
+                    <span *ngSwitchCase="cipherType.Login">{{'typeLogin' | i18n}}</span>
+                    <span *ngSwitchCase="cipherType.SecureNote">{{'typeSecureNote' | i18n}}</span>
+                    <span *ngSwitchCase="cipherType.Card">{{'typeCard' | i18n}}</span>
+                    <span *ngSwitchCase="cipherType.Identity">{{'typeIdentity' | i18n}}</span>
+                    <span *ngSwitchDefault></span>
+                </div>
+            </div>
+        </div>
         <div class="box">
             <div class="box-header">
                 {{'itemInformation' | i18n}}
@@ -271,24 +303,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="footer" *ngIf="cipher">
-    <button appBlurClick class="primary" (click)="edit()" appA11yTitle="{{'edit' | i18n}}" *ngIf="!cipher.isDeleted">
-        <i class="fas fa-pen fa-fw fa-lg" aria-hidden="true"></i>
-    </button>
-    <button appBlurClick class="primary" (click)="restore()" appA11yTitle="{{'restore' | i18n}}" 
-        *ngIf="cipher.isDeleted">
-        <i class="fas fa-undo fa-fw fa-lg" aria-hidden="true"></i>
-    </button>
-    <button appBlurClick class="primary" *ngIf="!cipher?.organizationId && !cipher.isDeleted" (click)="clone()" 
-        appA11yTitle="{{'clone' | i18n}}">
-        <i class="fas fa-copy fa-fw fa-lg" aria-hidden="true"></i>
-    </button>
-    <div class="right">
-        <button appBlurClick type="button" (click)="delete()" class="danger"
-            appA11yTitle="{{(cipher.isDeleted ? 'permanentlyDelete' : 'delete') | i18n}}">
-            <i class="fas fa-trash fa-lg fa-fw" aria-hidden="true"></i>
-        </button>
     </div>
 </div>

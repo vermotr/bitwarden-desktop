@@ -168,7 +168,7 @@ $close-text-shadow: 0 1px 0 $white !default;
     outline: 0;
 
     @include themify($themes) {
-        background-color: themed('backgroundColorAlt');
+        background-color: themed('backgroundColorAlt2');
     }
 }
 

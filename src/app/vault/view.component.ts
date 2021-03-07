@@ -25,6 +25,8 @@ import { ViewComponent as BaseViewComponent } from 'jslib/angular/components/vie
 
 import { CipherView } from 'jslib/models/view/cipherView';
 
+import { CipherType } from 'jslib/enums/cipherType';
+
 const BroadcasterSubscriptionId = 'ViewComponent';
 
 @Component({
@@ -33,6 +35,7 @@ const BroadcasterSubscriptionId = 'ViewComponent';
 })
 export class ViewComponent extends BaseViewComponent implements OnChanges {
     @Output() onViewCipherPasswordHistory = new EventEmitter<CipherView>();
+    cipherType = CipherType;
 
     constructor(cipherService: CipherService, totpService: TotpService,
         tokenService: TokenService, i18nService: I18nService,

@@ -4,10 +4,10 @@
             [(ngModel)]="searchText" (input)="search(200)" autocomplete="off" appAutofocus>
         <i class="fas fa-search" aria-hidden="true"></i>
     </div>
-    <div class="add-item">
+    <div>
         <button appBlurClick (click)="addCipher()" (contextmenu)="addCipherOptions()"
             class="btn block primary" appA11yTitle="{{'addItem' | i18n}}" [disabled]="deleted">
-            <i class="fas fa-plus fa-lg" aria-hidden="true"></i>
+            <i class="fas fa-plus" aria-hidden="true"></i>
         </button>
     </div>
 </div>

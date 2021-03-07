@@ -1,4 +1,25 @@
 <form #form (ngSubmit)="submit()" [appApiAction]="formPromise">
+    <div class="header">
+        <button #deleteBtn appBlurClick type="button" (click)="delete()" class="danger"
+            appA11yTitle="{{'delete' | i18n}}" *ngIf="editMode && !cloneMode" [disabled]="deleteBtn.loading"
+            [appApiAction]="deletePromise">
+            <i class="fas fa-trash fa-fw" [hidden]="deleteBtn.loading" aria-hidden="true"
+            ></i><i class="fas fa-spinner fa-spin fa-fw" [hidden]="!deleteBtn.loading" aria-hidden="true"></i>&nbsp;{{'delete' | i18n}}
+        </button>
+        <button appBlurClick type="button" (click)="share()" appA11yTitle="{{'shareItem' | i18n}}"
+            *ngIf="editMode && cipher && !cipher.organizationId && !cloneMode">
+            <i class="fas fa-share-alt fa-fw" aria-hidden="true"></i>&nbsp;{{'shareItem' | i18n}}
+        </button>
+        <div class="right">
+            <button appBlurClick type="button" (click)="cancel()">
+                {{'cancel' | i18n}}
+            </button>
+            <button appBlurClick type="submit" class="primary" appA11yTitle="{{'save' | i18n}}" [disabled]="form.loading">
+                <i class="fas fa-save fa-fw" [hidden]="form.loading" aria-hidden="true"
+                ></i><i class="fas fa-spinner fa-spin fa-fw" [hidden]="!form.loading" aria-hidden="true"></i>&nbsp;{{'save' | i18n}}
+            </button>
+        </div>
+    </div>
     <div class="content">
         <div class="inner-content" *ngIf="cipher">
             <div class="box">
@@ -199,7 +220,7 @@
                         <div class="box-content-row box-content-row-multi" appBoxRow
                             *ngFor="let u of cipher.login.uris; let i = index; trackBy:trackByFunction">
                             <a href="#" appStopClick (click)="removeUri(u)" appA11yTitle="{{'remove' | i18n}}">
-                                <i class="fas fa-minus-circle fa-lg" aria-hidden="true" role="button"></i>
+                                <i class="fas fa-minus-circle fa-lg fa-fw" aria-hidden="true" role="button"></i>
                             </a>
                             <div class="row-main">
                                 <label for="loginUri{{i}}">{{'uriPosition' | i18n : (i + 1)}}</label>
@@ -223,7 +244,7 @@
                         </div>
                     </ng-container>
                     <a href="#" appStopClick appBlurClick (click)="addUri()" class="box-content-row" role="button">
-                        <i class="fas fa-plus-circle fa-fw fa-lg" aria-hidden="true"></i> {{'newUri' | i18n}}
+                        <i class="fas fa-plus-circle fa-fw fa-lg new-field" aria-hidden="true"></i>{{'newUri' | i18n}}
                     </a>
                 </div>
             </div>
@@ -305,7 +326,7 @@
                     </div>
                     <div class="box-content-row" appBoxRow>
                         <a href="#" appStopClick (click)="addField()" role="button">
-                            <i class="fas fa-plus-circle fa-fw fa-lg" aria-hidden="true"></i> {{'newCustomField' | i18n}}
+                            <i class="fas fa-plus-circle fa-fw fa-lg new-field" aria-hidden="true"></i>{{'newCustomField' | i18n}}
                         </a>
                         <label for="addFieldType" class="sr-only">{{'type' | i18n}}</label>
                         <select id="addFieldType" name="AddFieldType" [(ngModel)]="addFieldType" class="field-type">
@@ -344,27 +365,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        <button appBlurClick type="submit" class="primary" appA11yTitle="{{'save' | i18n}}" [disabled]="form.loading">
-            <i class="fas fa-save fa-lg fa-fw" [hidden]="form.loading" aria-hidden="true"></i>
-            <i class="fas fa-spinner fa-spin fa-lg fa-fw" [hidden]="!form.loading" aria-hidden="true"></i>
-        </button>
-        <button appBlurClick type="button" (click)="cancel()">
-            {{'cancel' | i18n}}
-        </button>
-        <div class="right">
-            <button appBlurClick type="button" (click)="share()" appA11yTitle="{{'shareItem' | i18n}}"
-                *ngIf="editMode && cipher && !cipher.organizationId && !cloneMode">
-                <i class="fas fa-share-alt fa-lg fa-fw" aria-hidden="true"></i>
-            </button>
-            <button #deleteBtn appBlurClick type="button" (click)="delete()" class="danger"
-                appA11yTitle="{{'delete' | i18n}}" *ngIf="editMode && !cloneMode" [disabled]="deleteBtn.loading"
-                [appApiAction]="deletePromise">
-                <i class="fas fa-trash fa-lg fa-fw" [hidden]="deleteBtn.loading" aria-hidden="true"></i>
-                <i class="fas fa-spinner fa-spin fa-lg fa-fw" [hidden]="!deleteBtn.loading" aria-hidden="true"></i>
-            </button>
         </div>
     </div>
 </form>
